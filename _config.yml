@@ -20,7 +20,7 @@
 
 title: Kroxylicious
 description: Network proxy framework for Apache Kafka
-tagline: "An open-source network proxy framework for Apache Kafka."
+tagline: "An open-source network proxy framework for Apache Kafka&#174;."
 logo: "/images/kroxylicious_logo_rgb_vert_default.svg"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://gracegrimwood.github.io/kroxylicious.github.io" # for demo purposes only, don't merge this into main Kroxylicious site repo
@@ -40,7 +40,8 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
+exclude:
+  - .idea
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
