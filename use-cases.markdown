@@ -8,5 +8,7 @@ toc: true
 {% for use_case in site.use_cases %}
 # {{ use_case.name }}
 
-{{ use_case.content | markdownify | inject_anchors }}
+<div class="no_toc_section">
+    {{ use_case.content | markdownify }}
+</div>
 {% endfor %}
