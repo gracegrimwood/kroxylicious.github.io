@@ -57,3 +57,6 @@ exclude:
 collections:
   use_cases:
     output: false
+
+toc:
+  max_level: 1

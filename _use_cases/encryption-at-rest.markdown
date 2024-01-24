@@ -64,7 +64,7 @@ of a design flaw or bug are significant (confidentiality breach).
 Having the applications encrypt/decrypt data themselves, whilst technically feasible, is not really a tenable solution
 at the scale required for most enterprises.
 
-# Kroxylicious Topic Encryption
+## Kroxylicious Topic Encryption
 
 The Kroxylicious Topic Encryption feature offers a solution to the problem.  The proxy takes the responsibility
 to encrypt and decrypt the messages. In this way, the Kafka Brokers never see the plain text content of
