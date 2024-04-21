@@ -37,6 +37,9 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Install rake
         run: gem install rake
+      - name: Setup Go and install a2s
+        uses: actions/setup-go@v5
+        run: go get github.com/asciitosvg/asciitosvg/cmd/a2s
       - name: Update Bundler and Setup Jekyll
         run: bundle install && bundle update --bundler
       - name: Download Bootstrap 5 SCSS Sources
