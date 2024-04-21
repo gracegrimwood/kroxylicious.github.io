@@ -1,45 +1,45 @@
 @charset "utf-8";
 // Required
 @import "./bootstrap/scss/functions";
-@import "./bootstrap/scss/variables";
-@import "./bootstrap/scss/variables-dark";
 
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
 $font-family-sans-serif:
-        "Josefin Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+        "Questrial", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
         "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
         "Segoe UI Symbol", "Noto Color Emoji";
-
-$custom-colors: (
-  "kroxy-dark-green": #216869,
-  "kroxy-light-green": #49a078,
-  "kroxy-dark": #1f2421,
-  "kroxy-light": #dce1de,
-);
-
-$theme-colors: map-merge($theme-colors, $custom-colors);
-
-$navbar-dark-color: rgba($white, 0.75);
-$navbar-dark-hover-color: rgba($white, 0.95);
-$navbar-dark-active-color: rgba($white, 1);
-$navbar-dark-disabled-color: rgba($white, 0.45);
 
 $kroxy-dark-green: #216869;
 $kroxy-mid-green: #358471;
 $kroxy-light-green: #49a078;
 $kroxy-dark: #1f2421;
 $kroxy-light: #dce1de;
-$kroxy-shadow-dark: rgba($kroxy-dark, 0.15);
-$kroxy-shadow-light: rgba($kroxy-light, 0.15);
 
 $primary: $kroxy-light-green;
 $secondary: $kroxy-dark-green;
 $dark: $kroxy-dark;
 $light: $kroxy-light;
 
+@import "./bootstrap/scss/variables";
+@import "./bootstrap/scss/variables-dark";
+
+$navbar-dark-color: rgba($white, 0.75);
+$navbar-dark-hover-color: rgba($white, 0.95);
+$navbar-dark-active-color: rgba($white, 1);
+$navbar-dark-disabled-color: rgba($white, 0.45);
+
+@import "./bootstrap/scss/maps";
+
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "./bootstrap/scss/bootstrap";
+
+body {
+  height: fit-content!important;
+}
+
+.krx-content * {
+  scroll-margin-top: 5rem!important;
+}
 
 .list-group-item:hover {
   background-color: tint-color($primary, 50%);
@@ -49,7 +49,7 @@ $light: $kroxy-light;
   padding: 0.75rem 0;
   background-color: transparent;
   background: linear-gradient(to bottom, rgba($kroxy-dark, 1), rgba($kroxy-dark, 0.95));
-  box-shadow: 0 0.5rem 1rem $kroxy-shadow-dark,inset 0 -1px 0 $kroxy-shadow-dark;
+  box-shadow: 0 0.5rem 1rem rgba($kroxy-dark, 0.15),inset 0 -1px 0 rgba($kroxy-light, 0.15);
 }
 
 .krx-gutter {
@@ -61,7 +61,7 @@ $light: $kroxy-light;
 }
 
 .krx-nav-link.active {
-  text-shadow: 0 0 1rem $kroxy-shadow-light;
+  text-shadow: 0 0 1rem rgba($kroxy-light, 0.15);
 }
 
 .krx-footer-license {
@@ -72,6 +72,11 @@ $light: $kroxy-light;
 .krx-icon {
   height: 1.7rem;
   vertical-align: middle;
+}
+
+.krx-alert-content > p, .krx-alert-heading > p, .krx-card-nav-link > p {
+  // this is to get around some icky behaviour from markdownify
+  margin-bottom: 0;
 }
 
 .redhat-footer {
@@ -118,11 +123,56 @@ $light: $kroxy-light;
   }
 }
 
+// Rouge highlighter additional formatting
+// Main rouge formatting is in css/code.css
 
-.highlighter-rouge {
-  background-color: #f8f8f8!important;
+// ensure padding for code blocks
+.highlight {
+  text-wrap: wrap;
+  padding: 1.5em;
+  border-radius: 4px;
 }
 
 div.highlighter-rouge {
   padding: 0 10px;
+}
+
+// Hero Styles
+
+.krx-hero {
+  background: rgb(73,160,120);
+  background: linear-gradient(111deg, rgba(73,160,120,1) 0%, rgba(44,96,72,1) 30%, rgba(22,48,36,1) 100%);
+
+  h1, p {
+  color: $white !important;
+  }
+}
+
+// Anchor Links
+
+h2>a.anchor, h3>a.anchor, h4>a.anchor, h5>a.anchor, h6>a.anchor {
+  font-family: bootstrap-icons!important;
+  color: rgba($primary, 0);
+  display: block;
+  margin-left: -1.5ex;
+  position: absolute;
+  text-decoration: none !important;
+  visibility: hidden;
+  z-index: 2;
+  transition:
+          visibility 1ms linear,
+          color 200ms ease-in-out;
+}
+
+h2>a.anchor::before, h3>a.anchor::before, h4>a.anchor::before, h5>a.anchor::before, h6>a.anchor::before {
+  content: "\f470";
+}
+
+h2:hover>a.anchor, h3:hover>a.anchor, h4:hover>a.anchor, h5:hover>a.anchor, h6:hover>a.anchor {
+  visibility: visible;
+  color: rgba($primary, 1);
+}
+
+h2:hover>a.anchor:hover, h3:hover>a.anchor:hover, h4:hover>a.anchor:hover, h5:hover>a.anchor:hover, h6:hover>a.anchor:hover {
+  color: rgba($secondary, 1);
 }
