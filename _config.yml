@@ -72,7 +72,7 @@ asciidoctor:
   base_dir: :docdir
   safe: unsafe
   attributes:
-    imagesdir: /images
+    imagesdir: /kroxylicious.github.io/images
     page-layout: docs
     toc: preamble
     source-highlighter: rouge
