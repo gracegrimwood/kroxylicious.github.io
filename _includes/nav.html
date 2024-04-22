@@ -48,7 +48,7 @@
             <ul class="dropdown-menu">
               {% for version in site.data.kroxylicious.versions %}
               <li>
-                <a class="dropdown-item {% if page.url == version.url %}active{% endif %} krx-nav-link py-2 px-0 px-lg-4" href="{{ version.url }}">
+                <a class="dropdown-item {% if page.url == version.url %}active{% endif %} krx-nav-link py-2 px-0 px-lg-4" href="{{ version.url | absolute_url }}">
                   {{ version.title }}
                 </a>
               </li>
